@@ -9,7 +9,7 @@ import java.security.Principal;
 
 
 @Controller
-public class accountControllor {
+public class AccountController {
 
     // Spring initializes thin interface WITH a class.
     // This bean will be used communicate with hibernate in order to acces "users" in the db --> orm.
@@ -29,7 +29,7 @@ public class accountControllor {
     @GetMapping("/login")
     public String getLogIn(){
 
-        return "logIn";
+        return "login";
     }
 
 }
