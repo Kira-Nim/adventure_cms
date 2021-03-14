@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+
+<!-- stylesheet -->
+<link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}">
+
+<!-- font -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
+
+<!-- Icon -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- for bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Adventure Alley</title>
+</head>
+
+<body>
+
+
+<!-- Navigation bar - Admin logged in ></a>-->
+
+<div class="navBackground" th:fragment="navigationBarLoggedIn">
+
+    <div class="container">
+        <div class="row">
+            <div class="offset-11 col-1">
+                <div>
+                    <div class="navDropdown navLinkStyle navImgPlacement">
+                        <img src="../images/favicon.png" class="navImg"/>
+                        <div class="navDropdown-content">
+                            <a href="/logout" class="navLinkStyle">Log ud</a>
+                        </div>
+                    </div>
+
+                    <div class="navLinkStyle">
+                        <a href="/adminMainPage" class="navLinkStyle">
+                            <img src="../images/A.png" class="navImg"/>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Navigation bar - Before login ></a>-->
+<div class="navBackground" th:fragment="navigationBar">
+
+    <div class="container">
+        <div class="row">
+            <div class="offset-11 col-1">
+                <div class="navDropdown navLinkStyle navImgPlacement">
+                    <img src="../images/favicon.png" class="navImg"/>
+                    <div class="navDropdown-content">
+                        <a href="/login" class="navLinkStyle">Personale Logind</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
