@@ -31,5 +31,5 @@ public class accountControllor {
 
         return "logIn";
     }
-    
+
 }
