@@ -232,3 +232,35 @@ button:focus {
     font-size: 15px
 }
 
+
+
+
+
+
+.tempBorderRed{
+    border: 2px solid #ff1b0c;
+}
+
+.tempBorderBlue{
+    border: 2px solid #3f8de9;
+}
+
+.tempBorderGreen{
+    border: 2px solid #7fa32f;
+}
+
+.tempBorderpurple{
+    border: 2px solid #7d56e9;
+}
+
+.tempBorderYellow{
+    border: 2px solid #ffdb2d;
+}
+
+.tempBorderOrange{
+    border: 2px solid #f68316;
+}
+
+.tempBorderPink{
+    border: 2px solid #ff45f5;
+}

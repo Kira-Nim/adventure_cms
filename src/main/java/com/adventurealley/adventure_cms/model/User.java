@@ -12,7 +12,9 @@ public class User {
     private String name;
     private String username;
     private String password;
-    private String admin_access;
+
+    @Column(name = "admin_access")
+    private String adminAccess;
 
 
 
@@ -29,7 +31,7 @@ public class User {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    public String getAdmin_access() { return admin_access; }
-    public void setAdmin_access(String admin_access) { this.admin_access = admin_access; }
+    public String getAdminAccess() { return adminAccess; }
+    public void setAdminAccess(String admin_access) { this.adminAccess = admin_access; }
 }
 
