@@ -36,12 +36,12 @@ public class AccountController {
         // Get all upcomming activities in a List.
         List<Activity> activityList = landingpagePresenter.getAllUpcomingActivities();
 
-        // Get Get all upcomming activities in a List, but with no duplicates
-
+        // Get Get all titles of upcoming activities in a List, but with no duplicates
+        List<String> noDuplicatesActivityTitleList = landingpagePresenter.getUpcomingActivityTitleListNoDuplicates();
 
         //Add to Model.
         indexModel.addAttribute("activityList", activityList);
-        indexModel.addAttribute("noDuplicatesActivityList", noDuplicatesActivityList);
+        indexModel.addAttribute("noDuplicatesActivityTitleList", noDuplicatesActivityTitleList);
 
         if(principal != null){
 

@@ -4,14 +4,11 @@ import com.adventurealley.adventure_cms.model.Activity;
 import com.adventurealley.adventure_cms.model.ActivityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 @Component
@@ -21,40 +18,54 @@ public class LandingpagePresenter {
     private ActivityRepository activityRepository;
 
     // Get all upcoming activities from db
-    public List<Activity> getAllUpcomingActivities(){
+    public List<Activity> getAllUpcomingActivities() {
 
-        List<Activity> activityList = activityRepository.findAll();
         ArrayList<Activity> upcomingActivityList = new ArrayList<Activity>();
 
-        List<Activity> sortedActivityList = activityList
-                .stream()
-                .sorted(Comparator.comparing(Activity::getTitle))
-                .collect(Collectors.toList());
+        try {
+            List<Activity> activityList = activityRepository.findAll();
+            List<Activity> sortedActivityList = activityList
+                    .stream()
+                    .sorted(Comparator.comparing(Activity::getTitle))
+                    .collect(Collectors.toList());
 
-        for(Activity activity : activityList){
+            for (Activity activity : activityList) {
 
-            System.out.println(activity.getTitle());
+                System.out.println(activity.getTitle());
 
-            if(activity.getStartDateTime().isBefore(LocalDateTime.now())){
-                upcomingActivityList.add(activity);
+                if (activity.getStartDateTime().isBefore(LocalDateTime.now())) {
+                    upcomingActivityList.add(activity);
+                }
             }
-        }
+        }catch(Exception e){ upcomingActivityList = null; }
 
         return upcomingActivityList;
     }
 
 
-    // Remove duplicates from List using Stream
 
-    public List<Activity> getUpcomingActivityListWithoutDuplicates(){
-        getAllUpcomingActivities();
+    // Get List of activity titles without duplicates.
+    public List<String> getUpcomingActivityTitleListNoDuplicates(){
 
-        return noDuplicatesList;
+        ArrayList<String> titleList = new ArrayList<String>();
+
+        try {
+            for (Activity activity : getAllUpcomingActivities()) {
+                titleList.add(activity.getTitle());
+            }
+
+            List<String> noDuplicatesTitleList = titleList
+                    .stream()
+                    .distinct()
+                    .collect(Collectors.toList());
+
+            return noDuplicatesTitleList;
+
+        }catch(Exception e){
+            List<String> noDuplicatesTitleList = null;
+            return noDuplicatesTitleList;
+        }
+
     }
 
-    Stream<Activity> activityStream = activityList.stream();
-    List<Activity> noDuplicatesActivityList = activityList
-            .stream()
-            .distinct()
-            .collect(Collectors.toList());
 }

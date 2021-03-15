@@ -28,25 +28,22 @@
 
     <div th:unless="${loggedIn}">
         <div th:insert="components :: navigationBar"></div>
-
-        <div class="container tempBorderBlue">
-            <div class="row tempBorderRed" th:each = "activity: ${activityList}">
-                <div class="col-2">
-                    <div th:text="${activity.getTitle()}"></div>
-                </div>
-                <div class="col-2">
-                    <div th:text="${activity.getTitle()}"></div>
-                </div>
-            </div>
-
-        </div>
-
     </div>
 
-    <H1>Adventure Alley - main page</H1>
+    <H1>Adventure Alley - Landing page</H1>
 
 
+    <!--        <div class="container tempBorderBlue">
+                <div class="row tempBorderRed" th:each = "activity: ${activityList}">
+                    <div class="col-2">
+                        <div th:text="${activity.getTitle()}"></div>
+                    </div>
+                    <div class="col-2">
+                        <div th:text="${activity.getTitle()}"></div>
+                    </div>
+                </div>
 
+            </div>-->
 
 
 
