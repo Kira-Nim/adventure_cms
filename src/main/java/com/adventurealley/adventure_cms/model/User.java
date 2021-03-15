@@ -21,16 +21,15 @@ public class User {
     public void setId(Integer id) { this.id = id; }
 
     public String getName() { return name; }
-
     public void setName(String name) { this.name = name; }
+
     public String getUsername() { return username; }
-
     public void setUsername(String username) { this.username = username; }
+
     public String getPassword() { return password; }
-
     public void setPassword(String password) { this.password = password; }
-    public String getAdmin_access() { return admin_access; }
 
+    public String getAdmin_access() { return admin_access; }
     public void setAdmin_access(String admin_access) { this.admin_access = admin_access; }
 }
 

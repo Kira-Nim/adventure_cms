@@ -22,8 +22,15 @@
 </head>
 
 <body>
-    <div th:insert="components :: navigationBar"></div>
-    <H1>Adventure Alley</H1>
+    <div th:if="${loggedIn}">
+        <div th:insert="components :: navigationBarLoggedIn"></div>
+    </div>
+
+    <div th:unless="${loggedIn}">
+        <div th:insert="components :: navigationBar"></div>
+    </div>
+
+    <H1>Adventure Alley - main page</H1>
 
 </body>
 </html>

@@ -40,8 +40,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .and()
                 .formLogin() // Man logger ind gennem en form i html som man poster fra
                 .loginPage("/login") // Den side som der er tale om ligger på denne sti (vi laver den selv i en controler)
-                .defaultSuccessUrl("/adminMainPage") // Efter login skal brugeren rediregeres til denne side.
-                .usernameParameter("username") // Når man poster et logind så skal email tolkes som username. Dette bruger man hvis der ikke bare er et username
+                .defaultSuccessUrl("/") // Efter login skal brugeren rediregeres til denne side.
+//                .usernameParameter("username") // Når man poster et logind så skal email tolkes som username. Dette bruger man hvis der ikke bare er et username
                 .permitAll() // Alle de sider som er nødvendige for at gøre ovenstående skal være lovlige før log-ind
                 .and()
                 .logout().permitAll() // Der skal være en side man skal logge ud på og denne skal være lovlig
