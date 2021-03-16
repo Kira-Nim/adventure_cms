@@ -1,6 +1,8 @@
 package com.adventurealley.adventure_cms.model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Event {
@@ -13,13 +15,16 @@ public class Event {
     private int activityId;
 
     @Column(name = "start_date_time")
-    private int startDateTime;
-
-    @Column(name = "end_date_time")
-    private int endDateTime;
+    private LocalDateTime startDateTime;
 
     @Column(name = "host_user_id")
     private int hostUserId;
+
+    @Transient
+    private String startDate;
+
+    @Transient
+    private String startTime;
 
 
     public Integer getId() { return id; }
@@ -28,12 +33,34 @@ public class Event {
     public int getActivityId() { return activityId; }
     public void setActivityId(int activityId) { this.activityId = activityId; }
 
-    public int getStartDateTime() { return startDateTime; }
-    public void setStartDateTime(int startDateTime) { this.startDateTime = startDateTime; }
-
-    public int getEndDateTime() { return endDateTime; }
-    public void setEndDateTime(int endDateTime) { this.endDateTime = endDateTime; }
+    public LocalDateTime getStartDateTime() { return startDateTime; }
+    public void setStartDateTime(LocalDateTime startDateTime) { this.startDateTime = startDateTime; }
 
     public int getHostUserId() { return hostUserId; }
     public void setHostUserId(int hostUserId) { this.hostUserId = hostUserId; }
+
+
+    public String getStartDate() {
+
+        String[] parts = convertAndSplitLocalDateTime();
+        startDate = parts[0];
+        return startDate;
+    }
+
+    public String getStartTime() {
+
+        String[] parts = convertAndSplitLocalDateTime();
+        startTime = parts[1];
+        return startTime;
+    }
+
+
+    private String[] convertAndSplitLocalDateTime(){
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY-MM-DD hh:mm:ss");
+        String[] parts = startDateTime.format(formatter).split(" ");
+
+        return parts;
+    }
+
 }

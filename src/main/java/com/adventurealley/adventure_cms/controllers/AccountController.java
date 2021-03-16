@@ -22,14 +22,17 @@ public class AccountController {
     private UserRepository userRepository;
 
     @Autowired
-    private ActivityRepository activityRepository;
-
+    ActivityRepository activityRepository;
 
     @GetMapping("/")
     public String getLandingPage(Principal principal, Model indexModel){
 
+        //Get list of all activities from db
         List<Activity> activityList = activityRepository.findAll();
+
+        //Add to Model.
         indexModel.addAttribute("activityList", activityList);
+
 
         if(principal != null){
 

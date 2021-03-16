@@ -12,8 +12,8 @@ public class Activity {
 
     private String title;
     private String description;
-
     private float price;
+    private int duration;
 
     @Column(name = "min_age")
     private int minAge;
@@ -41,4 +41,6 @@ public class Activity {
     public int getMaxParticipants() { return maxParticipants; }
     public void setMaxParticipants(int maxParticipants) { this.maxParticipants = maxParticipants; }
 
+    public int getDuration() { return duration; }
+    public void setDuration(int duration) { this.duration = duration; }
 }

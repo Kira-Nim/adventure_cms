@@ -35,16 +35,15 @@
 
     <div class="container tempBorderBlue">
 
-        <div class="row tempBorderRed" th:each = "activity: ${activityList}">
-            <div class="col-2">
-                <div th:text="${activity.getTitle()}"></div>
-            </div>
-            <div class="col-2">
+        <div class="row tempBorderRed activityBox">
+            <div class="col-4 tempBorderGreen" th:each = "activity: ${activityList}">
                 <div th:text="${activity.getTitle()}"></div>
             </div>
         </div>
 
-    </div>-->
+    </div>
+
+
 
 
 

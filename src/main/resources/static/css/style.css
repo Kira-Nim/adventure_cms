@@ -67,6 +67,8 @@
 
 
 
+
+
 /*----------Login site----------*/
 
 
@@ -232,6 +234,12 @@ button:focus {
     font-size: 15px
 }
 
+
+/*----------LandingPage----------*/
+
+.activityBox{
+    height: 500px;
+}
 
 
 
