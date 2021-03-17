@@ -13,7 +13,9 @@ public class Activity {
     private String title;
     private String description;
     private float price;
-    private int duration;
+
+    @Column(name="duration_minutes")
+    private int durationMinutes;
 
     @Column(name = "min_age")
     private int minAge;
@@ -21,6 +23,11 @@ public class Activity {
     @Column(name = "max_participants")
     private int maxParticipants;
 
+    @Column(name = "photo_url")
+    private String photoURL;
+
+    @Transient
+    private String duration = String.valueOf(durationMinutes/60.0f);
 
     // Getters and setters for all attributes
     public Integer getId() { return id; }
@@ -41,6 +48,11 @@ public class Activity {
     public int getMaxParticipants() { return maxParticipants; }
     public void setMaxParticipants(int maxParticipants) { this.maxParticipants = maxParticipants; }
 
-    public int getDuration() { return duration; }
-    public void setDuration(int duration) { this.duration = duration; }
+    public int getDurationMinutes() { return durationMinutes; }
+    public void setDuration(int duration) { this.durationMinutes = duration; }
+
+    public String getDuration() { return duration; }
+
+    public String getPhotoURL() { return photoURL; }
+    public void setDurationMinutes(int durationMinutes) { this.durationMinutes = durationMinutes; }
 }

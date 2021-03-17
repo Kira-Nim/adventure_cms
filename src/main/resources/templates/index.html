@@ -21,7 +21,7 @@
 
 </head>
 
-<body>
+<body class="LandingPageBackground">
     <div th:if="${loggedIn}">
         <div th:insert="components :: navigationBarLoggedIn"></div>
     </div>
@@ -30,18 +30,30 @@
         <div th:insert="components :: navigationBar"></div>
     </div>
 
-    <H1>Adventure Alley - Landing page</H1>
+    <H1 class ="activityText">Adventure Alley - Landing page</H1>
 
 
     <div class="container tempBorderBlue">
+        <div class="row tempBorderRed">
 
-        <div class="row tempBorderRed activityBox">
             <div class="col-4 tempBorderGreen" th:each = "activity: ${activityList}">
-                <div th:text="${activity.getTitle()}"></div>
-            </div>
-        </div>
 
+                <div class="row activityBox tempBorderOrange">
+                    <div class="activityTitle" th:text="${activity.getTitle()}"></div>
+                    <img class ="activityPhoto" th:src="${activity.getPhotoURL()}"/>
+
+                    <div th:text="${activity.getPrice()}">
+                        Pris:
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
+
+
+
 
 
 

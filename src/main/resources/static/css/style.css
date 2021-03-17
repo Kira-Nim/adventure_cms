@@ -237,9 +237,42 @@ button:focus {
 
 /*----------LandingPage----------*/
 
-.activityBox{
-    height: 500px;
+.LandingPageBackground{
+    background-color: black;
 }
+
+.activityBox{
+    height: 400px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.activityPhoto{
+    height: 100%;
+    width: 100%;
+}
+
+.activityTitle{
+    color: white;
+    font-size: 25px;
+    position: absolute;
+/*    bottom: 10;*/
+/*    background: rgb(0, 0, 0); !* Fallback color *!*/
+    background: rgba(0, 0, 0, 0.7); /* Black background with 0.7 opacity */
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.activityText{
+    color: white;
+}
+
+
+
+
+
 
 
 
