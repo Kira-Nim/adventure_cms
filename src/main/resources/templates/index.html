@@ -42,7 +42,10 @@
 
                 <div class="activityBox" th:style="'background-image:url(' + ${activityVTO.getActivity().getPhotoURL()} + '); background-size: auto;'">
 
-                    <p class="activityTitle" th:text="${activityVTO.getActivity().getTitle()}"></p>
+                    <div class="activityTitle">
+                        <span th:text="${activityVTO.getActivity().getTitle()}"></span><br>
+                        <span class="SeDescription activitydropdown">Se Beskrivelse</span>
+                    </div>
 
                     <div class="activityContent">
                         <span th:text="${activityVTO.getPriceString()}"></span>
@@ -53,17 +56,28 @@
                         <br>
                         <br>
                         <span class="activitydropdown" > Se Eventkalender</span>
-                        <br>
-                        <span class="activitydropdown"> Se Beskrivelse</span>
-
                     </div>
                 </div>
-
             </div>
+
+            <div class=" col-4 CreateActivityBox" th:if="${loggedIn == true || newActivity == false}">
+                <div class ="createActivityContent">
+                    <a href="/?newActivity=true" class="newActivityLinkStyle">
+                        <img src="../images/+1.png" class="imagePlus"/>
+                    </a>
+                </div>
+            </div>
+
+            <div class=" col-4 CreateActivityBox" th:if="${loggedIn == true || newActivity == true}">
+                <div class ="createActivityContent">
+                    <div>
+                        
+                    </div>
+                </div>
+            </div>
+
 
         </div>
     </div>
-
-
 </body>
 </html>

@@ -32,34 +32,34 @@ public class AccountController {
     LandingPagePresenter landingPagePresenter;
 
     @GetMapping("/")
-    public String getLandingPage(Principal principal, Model indexModel){
+    public String getLandingPage(Principal principal, Model indexModel, boolean newActivity){
+
+                                    // test
+                                    System.out.println(newActivity);
+
+        //Add variable "newActivity" to Model.
+        indexModel.addAttribute("newActivity", newActivity);
 
         // Get list of ActivityVTO's for model
         ArrayList<ActivityVTO> activityVTOList = landingPagePresenter.getActivityVTOList();
 
-        //Add to Model.
+        //Add activityVTOList to Model.
         indexModel.addAttribute("activityVTOList", activityVTOList);
-
-        // Test
-                            System.out.println(activityVTOList.size());
-                            for(ActivityVTO temp : activityVTOList){
-                                System.out.println(temp.getActivity().getTitle());
-                            }
-
 
         if(principal != null){
 
             boolean loggedIn = true;
 
-            //Add to Model.
+            //Add variable control variable "loggedIn" to Model.
             indexModel.addAttribute("loggedIn", loggedIn);
 
             return "index";
         }
         else {
+
             boolean loggedIn = false;
 
-            //Add to Model.
+            //Add variable control variable "loggedIn" to Model.
             indexModel.addAttribute("loggedIn", loggedIn);
 
             return "index";}
