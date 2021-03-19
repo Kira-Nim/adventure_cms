@@ -39,7 +39,6 @@ public class Event {
     public int getHostUserId() { return hostUserId; }
     public void setHostUserId(int hostUserId) { this.hostUserId = hostUserId; }
 
-
     public String getStartDate() {
 
         String[] parts = convertAndSplitLocalDateTime();

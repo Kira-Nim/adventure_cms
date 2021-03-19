@@ -6,17 +6,24 @@
 /*----------Nav bar----------*/
 /* Add a black background color to the top navigation */
 .navBackground {
-    background-color: white;
+    background-color: #2a3842;
     box-shadow: 0px 10px 10px -10px rgba(21,20,20,0.25);
 }
 
 /* Style the links inside the navigation bar */
 .navLinkStyle {
-    color: #f2f2f2;
-    padding: 10px 12px;
-    text-decoration: none;
+    color: #f2f2f2 !important;
+    padding: 20px 12px;
+    text-decoration: none !important;
     font-size: 15px;
+    font-weight: bold;
     display: inline;
+}
+
+.navDropdown-content a:hover {background-color: #607b8b}
+
+.navLinkStyle:hover{
+    color:  #efd14b !important;
 }
 
 .navImgPlacement{
@@ -36,20 +43,20 @@
 .navDropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: #607b8b;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 
 .navDropdown-content a {
-    color: black;
+    color: #eeeeee;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 
-.navDropdown-content a:hover {background-color: #f1f1f1}
+
 
 .navDropdown:hover .navDropdown-content {
     display: block;
@@ -60,8 +67,8 @@
 }
 
 .navImg{
-    height: 30px;
-    width:30px;
+    height: 40px;
+    width:40px;
     border-radius: 100%;
 }
 
@@ -237,15 +244,26 @@ button:focus {
 
 /*----------LandingPage----------*/
 
+.landingPageHeader{
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 3px;
+    text-align: center;
+    font-size:35px;
+    color: #eeeeee;
+    background-color: #0f1a22;
+    padding: 20px;
+}
 .LandingPageBackground{
-    background-color: black;
+    background-color: white;
 }
 
 .activityBox{
     height: 400px;
-    margin-left: 20px;
-    margin-right: 20px;
     text-align: center;
+    margin-left: 15px !important;
+    margin-right:15px !important;
+    margin-bottom:60px !important;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .activityPhoto{
@@ -255,21 +273,39 @@ button:focus {
 
 .activityTitle{
     color: white;
-    font-size: 25px;
-    position: absolute;
-/*    bottom: 10;*/
-/*    background: rgb(0, 0, 0); !* Fallback color *!*/
-    background: rgba(0, 0, 0, 0.7); /* Black background with 0.7 opacity */
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    background: rgba(15, 26, 34, 0.9); /* Black background with 0.7 opacity */
     width: 100%;
     height: auto;
-    padding: 20px;
+    padding: 15px;
 }
 
-.activityText{
+.activityContent{
     color: white;
+    font-size: 15px;
+    bottom:0;
+    background: rgba(15, 26, 34, 0.8); /* Black background with 0.7 opacity */
+    width: 100%;
+    height: auto;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    margin-top:184px;
+    text-align: left;
 }
 
+.marginTop{
+    margin-top: 60px;
+}
 
+.activitydropdown{
+    font-weight: bold;
+}
+
+.activitydropdown:hover{
+    color: #efd14b;
+}
 
 
 

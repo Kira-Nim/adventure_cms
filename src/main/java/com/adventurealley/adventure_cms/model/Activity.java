@@ -1,6 +1,7 @@
 package com.adventurealley.adventure_cms.model;
 
 import javax.persistence.*;
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 
 @Entity // This tells Hibernate that an matching db table exist that can be mapped to this class.
@@ -26,8 +27,6 @@ public class Activity {
     @Column(name = "photo_url")
     private String photoURL;
 
-    @Transient
-    private String duration = String.valueOf(durationMinutes/60.0f);
 
     // Getters and setters for all attributes
     public Integer getId() { return id; }
@@ -40,6 +39,7 @@ public class Activity {
     public void setDescription(String description) { this.description = description; }
 
     public float getPrice() { return price; }
+
     public void setPrice(float price) { this.price = price; }
 
     public int getMinAge() { return minAge; }
@@ -51,8 +51,6 @@ public class Activity {
     public int getDurationMinutes() { return durationMinutes; }
     public void setDuration(int duration) { this.durationMinutes = duration; }
 
-    public String getDuration() { return duration; }
-
     public String getPhotoURL() { return photoURL; }
-    public void setDurationMinutes(int durationMinutes) { this.durationMinutes = durationMinutes; }
+    public void setPhotoURL(String photoURL) { this.photoURL = photoURL; }
 }

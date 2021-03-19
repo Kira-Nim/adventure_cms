@@ -1,14 +1,18 @@
 package com.adventurealley.adventure_cms.controllers;
 
+import com.adventurealley.adventure_cms.VTOs.ActivityVTO;
 import com.adventurealley.adventure_cms.model.Activity;
 import com.adventurealley.adventure_cms.model.ActivityRepository;
 import com.adventurealley.adventure_cms.model.UserRepository;
+import com.adventurealley.adventure_cms.presenters.LandingPagePresenter;
+import com.adventurealley.adventure_cms.services.PriceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -24,14 +28,23 @@ public class AccountController {
     @Autowired
     ActivityRepository activityRepository;
 
+    @Autowired
+    LandingPagePresenter landingPagePresenter;
+
     @GetMapping("/")
     public String getLandingPage(Principal principal, Model indexModel){
 
-        //Get list of all activities from db
-        List<Activity> activityList = activityRepository.findAll();
+        // Get list of ActivityVTO's for model
+        ArrayList<ActivityVTO> activityVTOList = landingPagePresenter.getActivityVTOList();
 
         //Add to Model.
-        indexModel.addAttribute("activityList", activityList);
+        indexModel.addAttribute("activityVTOList", activityVTOList);
+
+        // Test
+                            System.out.println(activityVTOList.size());
+                            for(ActivityVTO temp : activityVTOList){
+                                System.out.println(temp.getActivity().getTitle());
+                            }
 
 
         if(principal != null){

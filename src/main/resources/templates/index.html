@@ -10,7 +10,10 @@
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Quicksand&display=swap" rel="stylesheet">
 
     <!-- Icon -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,20 +33,29 @@
         <div th:insert="components :: navigationBar"></div>
     </div>
 
-    <H1 class ="activityText">Adventure Alley - Landing page</H1>
+    <h1 class="landingPageHeader">Adventure Alley</h1>
 
+    <div class="container marginTop">
+        <div class="row">
 
-    <div class="container tempBorderBlue">
-        <div class="row tempBorderRed">
+            <div class="col-4" th:each = "activityVTO: ${activityVTOList}">
 
-            <div class="col-4 tempBorderGreen" th:each = "activity: ${activityList}">
+                <div class="activityBox" th:style="'background-image:url(' + ${activityVTO.getActivity().getPhotoURL()} + '); background-size: auto;'">
 
-                <div class="row activityBox tempBorderOrange">
-                    <div class="activityTitle" th:text="${activity.getTitle()}"></div>
-                    <img class ="activityPhoto" th:src="${activity.getPhotoURL()}"/>
+                    <p class="activityTitle" th:text="${activityVTO.getActivity().getTitle()}"></p>
 
-                    <div th:text="${activity.getPrice()}">
-                        Pris:
+                    <div class="activityContent">
+                        <span th:text="${activityVTO.getPriceString()}"></span>
+                        <br>
+                        <span>Minimum alder: </span><span th:text="${activityVTO.getActivity().getMinAge()}"></span>
+                        <br>
+                        <span th:text="${activityVTO.getDurationString()}"></span>
+                        <br>
+                        <br>
+                        <span class="activitydropdown" > Se Eventkalender</span>
+                        <br>
+                        <span class="activitydropdown"> Se Beskrivelse</span>
+
                     </div>
                 </div>
 
@@ -51,13 +63,6 @@
 
         </div>
     </div>
-
-
-
-
-
-
-
 
 
 </body>
