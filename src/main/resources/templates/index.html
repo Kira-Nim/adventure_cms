@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <title>Adventure Alley</title>
 
-    <!-- stylesheet -->
+    <!-- stylesheet.css -->
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+    <!-- eventJSsheet.js -->
+    <link rel="eventJSsheet" type="text/js" th:href="@{/js/eventJSsheet.js}">
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -55,12 +58,12 @@
                         <span th:text="${activityVTO.getDurationString()}"></span>
                         <br>
                         <br>
-                        <span class="activitydropdown" > Se Eventkalender</span>
+                        <span onclick ="showEventDropdown()" class="activitydropdown" > Se Eventkalender</span>
                     </div>
                 </div>
             </div>
 
-            <div class=" col-4 CreateActivityBox" th:if="${loggedIn == true || newActivity == false}">
+            <div class=" col-4 CreateActivityBox" th:if="${loggedIn == true && newActivity == false}">
                 <div class ="createActivityContent">
                     <a href="/?newActivity=true" class="newActivityLinkStyle">
                         <img src="../images/+1.png" class="imagePlus"/>
@@ -68,13 +71,31 @@
                 </div>
             </div>
 
-            <div class=" col-4 CreateActivityBox" th:if="${loggedIn == true || newActivity == true}">
+
+<!--            <div class=" col-4 CreateActivityBox" th:if="${loggedIn == true && newActivity == true}">
                 <div class ="createActivityContent">
-                    <div>
-                        
-                    </div>
+                    <form name="newActivity" th:action="@{/createActivity}" method="post">
+
+                        <div class="activityFormInfo">
+                            <div class="row tempBorderGreen">
+                                <label for="title"></label>
+                                <input type="text" name="title" id="title" value ="titel" >
+                            </div>
+
+                            <div class="row tempBorderGreen">
+                                <label for="title1"></label>
+                                <input type="text" name="title" id="title1" value ="titel1">
+                            </div>
+
+                            <div class="row tempBorderGreen">
+                                <label for="title2"></label>
+                                <input type="text" name="title" id="title2" value ="titel2">
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
-            </div>
+            </div>-->
 
 
         </div>

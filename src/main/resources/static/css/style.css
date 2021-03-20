@@ -242,7 +242,11 @@ button:focus {
 }
 
 
+
+
+
 /*----------LandingPage----------*/
+
 
 .landingPageHeader{
     font-family: 'Quicksand', sans-serif;
@@ -278,6 +282,19 @@ button:focus {
 .createActivityContent:hover{
     background: rgba(15, 26, 34, 0.3);
 }
+
+
+
+.activityFormInfo{
+    text-align: left;
+    width: 100%;
+    font-family:'Montserrat', sans-serif;
+    font-size:15px;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+
 
 .imagePlus{
     height:200px;
@@ -336,6 +353,13 @@ button:focus {
 .activitydropdown:hover{
     color: #efd14b;
 }
+
+
+
+
+
+
+
 
 
 

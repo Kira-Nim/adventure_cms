@@ -1,29 +1,45 @@
 package com.adventurealley.adventure_cms.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
 
 @Entity
 public class Event {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SerializedName("id")
+    @Expose
     private Integer id;
 
     @Column(name = "activity_id")
+    @SerializedName("activityId")
+    @Expose
     private int activityId;
 
     @Column(name = "start_date_time")
+    @SerializedName("startDateTime")
+    @Expose
     private LocalDateTime startDateTime;
 
     @Column(name = "host_user_id")
+    @SerializedName("hostUserId")
+    @Expose
     private int hostUserId;
 
     @Transient
+    @SerializedName("startDate")
+    @Expose
     private String startDate;
 
     @Transient
+    @SerializedName("startTime")
+    @Expose
     private String startTime;
 
 
@@ -40,14 +56,12 @@ public class Event {
     public void setHostUserId(int hostUserId) { this.hostUserId = hostUserId; }
 
     public String getStartDate() {
-
         String[] parts = convertAndSplitLocalDateTime();
         startDate = parts[0];
         return startDate;
     }
 
     public String getStartTime() {
-
         String[] parts = convertAndSplitLocalDateTime();
         startTime = parts[1];
         return startTime;
@@ -55,7 +69,6 @@ public class Event {
 
 
     private String[] convertAndSplitLocalDateTime(){
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY-MM-DD hh:mm:ss");
         String[] parts = startDateTime.format(formatter).split(" ");
 
