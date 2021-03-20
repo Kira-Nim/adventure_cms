@@ -38,7 +38,7 @@
 
     <h1 class="landingPageHeader">Adventure Alley</h1>
 
-    <div class="container marginTop">
+    <div class="container">
         <div class="row">
 
             <div class="col-4" th:each = "activityVTO: ${activityVTOList}">
@@ -47,7 +47,7 @@
 
                     <div class="activityTitle">
                         <span th:text="${activityVTO.getActivity().getTitle()}"></span><br>
-                        <span class="SeDescription activitydropdown">Se Beskrivelse</span>
+                        <span class="SeDescription seeDescription">Se Beskrivelse</span>
                     </div>
 
                     <div class="activityContent">
@@ -58,9 +58,25 @@
                         <span th:text="${activityVTO.getDurationString()}"></span>
                         <br>
                         <br>
-                        <span onclick ="showEventDropdown()" class="activitydropdown" > Se Eventkalender</span>
+                        <span onclick ="showEventDropdown()" class="activateActivityDropdown" id="js_EventList">
+
+                            <p>Se Eventkalender</p>
+
+                        </span>
                     </div>
                 </div>
+
+                <div class="activitydropdown" id="js_EventListBox">
+                    <ul class="activitydropDownContent" th:each = "activityVTO: ${activityVTOList}">
+                        <li class="activityDropdownLI">
+                            <span th:text="${activityVTO.getDurationString()}"></span>
+                            <br>
+                            <span th:text="${activityVTO.getActivity().getTitle()}"></span>
+                        </li>
+                    </ul>
+                </div>
+
+
             </div>
 
             <div class=" col-4 CreateActivityBox" th:if="${loggedIn == true && newActivity == false}">
@@ -96,9 +112,9 @@
                     </form>
                 </div>
             </div>-->
-
-
         </div>
     </div>
+
+
 </body>
 </html>

@@ -17,8 +17,11 @@ public interface EventRepository extends JpaRepository<Event, Integer> {
     // second e represents the item tyoe in table Event witch is events
     // the third e represents the value we want to compare our query parameter to. Here it is a LocalDateTime obj.
     // NB in this JPQL (JavaPersistensQueryLanguage) queries we use ?1 to represent the first parameter where native query use ?0 to represent the first queryparameter.
-    @Query("select e from Event e where e.start_date_time > ?1 and e.activity_id =?2")
+    @Query("select e from Event e where e.startDateTime > ?1 and e.activityId =?2")
     public List<Event> findEventsAfter(LocalDateTime dateTime, int activityId);
+
+    //@Query("select e from Event e where e.activityId =?2")
+    //public List<Event> findEventsAfter(int activityId);
 
 }
 

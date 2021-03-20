@@ -57,13 +57,13 @@ public class Event {
 
     public String getStartDate() {
         String[] parts = convertAndSplitLocalDateTime();
-        startDate = parts[0];
+        startDate = "Dato: " + parts[0];
         return startDate;
     }
 
     public String getStartTime() {
         String[] parts = convertAndSplitLocalDateTime();
-        startTime = parts[1];
+        startTime = "Tid: " + parts[1];
         return startTime;
     }
 
