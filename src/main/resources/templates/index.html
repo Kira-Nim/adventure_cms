@@ -58,23 +58,14 @@
                         <span th:text="${activityVTO.getDurationString()}"></span>
                         <br>
                         <br>
-                        <span onclick ="showEventDropdown()" class="activateActivityDropdown" id="js_EventList">
-
-                            <p>Se Eventkalender</p>
-
-                        </span>
+                        <select class="activitydropdown">
+                            <option value="">Vælg dato</option>
+                            <option value="0">15. Marts kl 14:00</option>
+                            <option value="1">16. Marts kl 14:00</option>
+                        </select>
                     </div>
                 </div>
 
-                <div class="activitydropdown" id="js_EventListBox">
-                    <ul class="activitydropDownContent" th:each = "activityVTO: ${activityVTOList}">
-                        <li class="activityDropdownLI">
-                            <span th:text="${activityVTO.getDurationString()}"></span>
-                            <br>
-                            <span th:text="${activityVTO.getActivity().getTitle()}"></span>
-                        </li>
-                    </ul>
-                </div>
 
 
             </div>
@@ -118,3 +109,18 @@
 
 </body>
 </html>
+
+
+
+
+
+<!--
+<div class="activitydropdown">
+    <ul class="activitydropDownContent" th:each = "activityVTO: ${activityVTOList}">
+        <li class="activityDropdownLI">
+            <span th:text="${activityVTO.getDurationString()}"></span>
+            <br>
+            <span th:text="${activityVTO.getActivity().getTitle()}"></span>
+        </li>
+    </ul>
+</div>-->

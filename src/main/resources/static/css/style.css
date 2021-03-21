@@ -301,7 +301,7 @@ button:focus {
 }
 
 .activityBox{
-    height: 400px;
+    height: 419px;
     text-align: center;
     margin-left: 15px !important;
     margin-right:15px !important;
@@ -357,29 +357,39 @@ button:focus {
     z-index: -1;
 }
 
-.activitydropdown{
-    display: none;
+/*.activitydropdown{
+    display: block;
     position: relative;
     z-index: 1;
     background-color:white;
     border: 2px solid black;
     margin-left: 15px;
     margin-right: 15px;
+}*/
+
+.activitydropdown{
+    margin-bottom: 15px;
+    width: 95%;
+    border: 1px solid #aaa;
+    font-family: 'Montserrat', sans-serif;
+    color:white;
+    font-weight: 700;
+    padding-top:2px;
+    padding-bottom:2px;
+    padding-left:4px;
+    background: transparent !important;
 }
 
-.activitydropDownContent{
-    list-style-type:none;
-    color: black;
-    margin: 0;
-    padding: 0;
+
+.activitydropdown:hover {
+    background-color: #2d3842;
+    color: white;
 }
 
-.activityDropdownLI{
-    padding: 5px;
-    margin-left: 5px;
+.activitydropdown:focus {
+    box-shadow: 0 0 1px 3px rgba(255, 255, 255, 0.3);
+    outline: none;
 }
-
-
 
 
 
