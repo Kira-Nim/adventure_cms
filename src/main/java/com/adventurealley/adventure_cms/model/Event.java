@@ -33,14 +33,9 @@ public class Event {
     private int hostUserId;
 
     @Transient
-    @SerializedName("startDate")
+    @SerializedName("dateTimeString")
     @Expose
-    private String startDate;
-
-    @Transient
-    @SerializedName("startTime")
-    @Expose
-    private String startTime;
+    private String dateTimeString;
 
 
     public Integer getId() { return id; }
@@ -55,24 +50,7 @@ public class Event {
     public int getHostUserId() { return hostUserId; }
     public void setHostUserId(int hostUserId) { this.hostUserId = hostUserId; }
 
-    public String getStartDate() {
-        String[] parts = convertAndSplitLocalDateTime();
-        startDate = "Dato: " + parts[0];
-        return startDate;
-    }
+    public String getDateTimeString() { return dateTimeString; }
 
-    public String getStartTime() {
-        String[] parts = convertAndSplitLocalDateTime();
-        startTime = "Tid: " + parts[1];
-        return startTime;
-    }
-
-
-    private String[] convertAndSplitLocalDateTime(){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY-MM-DD hh:mm:ss");
-        String[] parts = startDateTime.format(formatter).split(" ");
-
-        return parts;
-    }
-
+    public void setDateTimeString(String dateTimeString) { this.dateTimeString = dateTimeString; }
 }

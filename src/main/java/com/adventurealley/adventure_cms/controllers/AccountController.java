@@ -1,19 +1,16 @@
 package com.adventurealley.adventure_cms.controllers;
 
 import com.adventurealley.adventure_cms.VTOs.ActivityVTO;
-import com.adventurealley.adventure_cms.model.Activity;
 import com.adventurealley.adventure_cms.model.ActivityRepository;
+import com.adventurealley.adventure_cms.model.Event;
 import com.adventurealley.adventure_cms.model.UserRepository;
 import com.adventurealley.adventure_cms.presenters.LandingPagePresenter;
-import com.adventurealley.adventure_cms.services.PriceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import java.security.Principal;
 import java.util.ArrayList;
-import java.util.List;
 
 
 @Controller
@@ -34,8 +31,8 @@ public class AccountController {
     @GetMapping("/")
     public String getLandingPage(Principal principal, Model indexModel, boolean newActivity){
 
-                                    // test
-                                    System.out.println(newActivity);
+        Event event = new Event();
+        event.getDateTimeString();
 
         //Add variable "newActivity" to Model.
         indexModel.addAttribute("newActivity", newActivity);
