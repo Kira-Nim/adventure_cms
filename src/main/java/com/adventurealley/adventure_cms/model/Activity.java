@@ -1,8 +1,6 @@
 package com.adventurealley.adventure_cms.model;
 
 import javax.persistence.*;
-import java.text.DecimalFormat;
-import java.time.LocalDateTime;
 
 @Entity // This tells Hibernate that an matching db table exist that can be mapped to this class.
 public class Activity {

@@ -2,10 +2,8 @@ package com.adventurealley.adventure_cms.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 
 @Entity
