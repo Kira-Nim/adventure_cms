@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 
     <!-- eventJSsheet.js -->
-    <link rel="eventJSsheet" type="text/js" th:href="@{/js/eventJSsheet.js}">
+    <script src="/js/eventJSsheet.js" ></script>
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -58,13 +58,34 @@
                         <span th:text="${activityVTO.getDurationString()}"></span>
                         <br>
                         <br>
-                        <select class="activitydropdown">
+                        <select class="activitydropdown"
+                                th:attr="onclick=|fetchEvents(${activityVTO.getActivity().getId()})|,
+                                id=|${'activity_' + activityVTO.getActivity().getId()}|">
+
                             <option value="">Vælg dato</option>
-                            <option value="0">15. Marts kl 14:00</option>
-                            <option value="1">16. Marts kl 14:00</option>
+
                         </select>
                     </div>
                 </div>
+
+
+
+
+
+
+
+
+
+
+                <!--
+                https://stackoverflow.com/questions/32650536/using-thymeleaf-variable-in-onclick-attribute/52960571#52960571
+                th:attr="onclick=|myJSMethod('${myParameter}')|"
+                -->
+
+
+
+
+
 
 
 

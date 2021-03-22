@@ -35,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()// Vi vil gerne autoiserer hvilke http requests som må finde sted i hele programmet. Hvornår må programmet køre som "normalt"
-                .antMatchers("/resources/**", "/static/**", "/css/**", "/images/**", "/activityPage/**", "/","/getActivityEvents/**").permitAll() // Alle disse er tilladt når du ikke er logget ind eller er. når du er logget ind er alt ok.
+                .antMatchers("/resources/**", "/static/**", "/css/**", "/images/**", "/activityPage/**", "/","/getActivityEvents/**","/js/**").permitAll() // Alle disse er tilladt når du ikke er logget ind eller er. når du er logget ind er alt ok.
                 .anyRequest().authenticated() // Alle andre requests end ovenstående skal man være logget ind for at lave.
                 .and()
                 .formLogin() // Man logger ind gennem en form i html som man poster fra
