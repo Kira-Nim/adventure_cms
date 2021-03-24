@@ -38,6 +38,20 @@
 
     <h1 class="landingPageHeader">Adventure Alley</h1>
 
+
+
+    <div class="CreateActivitypopUpBox">
+    <div class="container CreateActivityPopUpBoxContainer">
+        <form name="newActivity" th:action="@{/createActivity}" method="post">
+            <div class="row">
+                <div class="CreateActivityPopUpHeader">
+                    <h1 >Opret Aktivitet</h1>
+                </div>
+            </div>
+        </form>
+    </div>
+    </div>
+
     <div class="container">
         <div class="row">
 
@@ -100,36 +114,41 @@
             </div>
 
 
-<!--            <div class=" col-4 CreateActivityBox" th:if="${loggedIn == true && newActivity == true}">
-                <div class ="createActivityContent">
-                    <form name="newActivity" th:action="@{/createActivity}" method="post">
+           <div onclick="showCreateActivityForm()" class="col-4 CreateActivityBox" th:if="${loggedIn == true && newActivity == true}"></div>
 
-                        <div class="activityFormInfo">
-                            <div class="row tempBorderGreen">
-                                <label for="title"></label>
-                                <input type="text" name="title" id="title" value ="titel" >
-                            </div>
+        </div>
+    </div>
+</body>
+</html>
 
-                            <div class="row tempBorderGreen">
-                                <label for="title1"></label>
-                                <input type="text" name="title" id="title1" value ="titel1">
-                            </div>
 
-                            <div class="row tempBorderGreen">
-                                <label for="title2"></label>
-                                <input type="text" name="title" id="title2" value ="titel2">
-                            </div>
-                        </div>
 
-                    </form>
-                </div>
-            </div>-->
+<!--
+<div class ="createActivityContent">
+<form name="newActivity" th:action="@{/createActivity}" method="post">
+
+    <div class="activityFormInfo">
+        <div class="row tempBorderGreen">
+            <label for="title"></label>
+            <input type="text" name="title" id="title" value ="titel" >
+        </div>
+
+        <div class="row tempBorderGreen">
+            <label for="title1"></label>
+            <input type="text" name="title" id="title1" value ="titel1">
+        </div>
+
+        <div class="row tempBorderGreen">
+            <label for="title2"></label>
+            <input type="text" name="title" id="title2" value ="titel2">
         </div>
     </div>
 
+</form>
+</div>-->
 
-</body>
-</html>
+
+
 
 
 

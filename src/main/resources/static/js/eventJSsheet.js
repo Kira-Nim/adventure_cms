@@ -18,21 +18,30 @@ function fetchEvents(id){
         })
         .then(events => {
 
-
-            for(eventVal of events){
-
-            // Create element of type <option> (what kind of tag) and set text and value attribute on option the tag.
-            var option = document.createElement("option");
-            option.text = eventVal.dateTimeString; // det som er imellem tags'ne
-            option.value = eventVal.id; // værdien som denne option repræsenterer (et Event obj)
-
-            // Get element with id = "activity_" + id and insert the option we made above in this element.
+            // Get element with id = "activity_" + id.
             var select = document.getElementById("activity_" + id);
-            select.appendChild(option); //appendChild er en metode som laver en option inde i select tagget.
-            }
 
+            // If The eventlist have not already been fetched.
+            if(select.length <= 1) {
+
+                for (eventVal of events) {
+
+                    // Create element of type <option> (what kind of tag) and set text and value attribute on option the tag.
+                    var option = document.createElement("option");
+                    option.text = eventVal.dateTimeString; // det som er imellem tags'ne
+                    option.value = eventVal.id; // værdien som denne option repræsenterer (et Event obj)
+
+                    //Insert the option we made above in this element.
+
+                    select.appendChild(option); //appendChild er en metode som laver en option inde i select tagget.
+                }
+            }
         });
 
+}
+
+function showCreateActivityForm(){
+    document.getElementById()
 }
 
 

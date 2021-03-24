@@ -256,6 +256,7 @@ button:focus {
     color: #eeeeee;
     background-color: #0f1a22;
     padding: 20px;
+    margin-bottom:0!important;
 }
 .LandingPageBackground{
     background-color: white;
@@ -272,10 +273,10 @@ button:focus {
     color: #283037;
     height:400px;
     text-align: center;
+    margin-top:60px;
     margin-left: 15px !important;
     margin-right: 15px !important;
     border: 1px solid black;
-    /*background: #eeeeee;*/
     background: #dfdfdf;
 }
 
@@ -283,8 +284,42 @@ button:focus {
     background: rgba(15, 26, 34, 0.3);
 }
 
+.CreateActivitypopUpBox{
+    display: block;
+    position: fixed !important;
+    z-index: 1;
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    right:0;
+    width: 100% !important; /* Full width */
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.CreateActivityPopUpBoxContainer{
+    background-color: white;
+    box-shadow: 0px 1px 21px -8px rgba(21,20,20,0.25);
+    height: 700px;
+    border-radius: 2px;
+
+}
+
+.CreateActivityPopUpHeader{
+    padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.CreateActivityPopUpHeader h1{
+    font-size:30px;
+    color: #111a22;
+    font-family: 'Montserrat', sans-serif;
+}
 
 
+/*
 .activityFormInfo{
     text-align: left;
     width: 100%;
@@ -292,7 +327,7 @@ button:focus {
     font-size:15px;
     margin-right: 0 !important;
     margin-left: 0 !important;
-}
+}*/
 
 
 
