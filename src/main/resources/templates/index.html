@@ -57,38 +57,57 @@
 
                     <div class="col-5">
                         <div class ="row">
-                            <span class="createActivityPopUpInputHeader">Titel</span>
+
+                            <div class="invalidChoice" th:if="${titleError}">
+                                <p>Titel må max fylde 200 anslag.</p>
+                            </div>
+                            <span class="createActivityPopUpInputHeader" th:unless="${titleError}">Titel</span>
                             <label for="title"></label>
                             <input type="text" name="title" id="title" th:value="${defaultActivityVTO.getActivity().getTitle()}" class="createActivityPopUpInput">
                             <span class="error"></span>
                         </div>
                         <br>
                         <div class ="row">
-                            <span class="createActivityPopUpInputHeader">Pris</span>
+                            <div class="invalidChoice" th:if="${priceError}">
+                                <p>Pris skal have følgende format 000.00 - f.eks 20.50</p>
+                            </div>
+                            <span class="createActivityPopUpInputHeader" th:unless="${priceError}">Pris</span>
                             <label for="price"></label>
                             <input type="text" name="price" id="price" th:value="${defaultActivityVTO.getPriceString()}" class="createActivityPopUpInput">
                         </div>
                         <br>
                         <div class ="row">
-                            <span class="createActivityPopUpInputHeader">Maks antal deltagere</span>
+                            <div class="invalidChoice" th:if="${participantsError}">
+                                <p>Beklager! Beskrivelsen må maks fylde 700 anslag</p>
+                            </div>
+                            <span class="createActivityPopUpInputHeader" th:unless="${participantsError}">Maks antal deltagere</span>
                             <label for="maxParticipants"></label>
                             <input type="text" name="maxParticipants" id="maxParticipants" th:value="${defaultActivityVTO.getActivity().maxParticipants}" class="createActivityPopUpInput">
                         </div>
                         <br>
                         <div class ="row">
-                            <span class="createActivityPopUpInputHeader">Minimums alder</span>
+                            <div class="invalidChoice" th:if="${ageError}">
+                                <p>Ugyldigt indput. Minimum alder angives som et helt, rundt tal F.eks. 15</p>
+                            </div>
+                            <span class="createActivityPopUpInputHeader" th:unless="${ageError}">Minimums alder</span>
                             <label for="minAge"></label>
                             <input type="text" name="minAge" id="minAge" th:value="${defaultActivityVTO.getActivity().getMinAge()}" class="createActivityPopUpInput">
                         </div>
                         <br>
                         <div class ="row">
-                            <span class="createActivityPopUpInputHeader">Varighed</span>
+                            <div class="invalidChoice" th:if="${durationError}">
+                                <p>"Ugyldigt indput. Længden skal angives i minutter. Der kan f.eks stå 240 hvis du ønsker en længde på 4 timer eller 0.5 hvis der ønskes en halv time"</p>
+                            </div>
+                            <span class="createActivityPopUpInputHeader" th:unless="${durationError}">Varighed</span>
                             <label for="duration"></label>
                             <input type="text" name="duration" id="duration" th:value="${defaultActivityVTO.getDurationString()}" class="createActivityPopUpInput">
                         </div>
                         <br>
                         <div class ="row">
-                            <span class="createActivityPopUpInputHeader">Billede</span>
+                            <div class="invalidChoice" th:if="${photoURLError}">
+                                <p>"Den angivede url var ikke gyldig. Brug evt. følgende service: https://imgur.com/upload "</p>
+                            </div>
+                            <span class="createActivityPopUpInputHeader" th:unless="${photoURLError}">Billede</span>
                             <label for="photoURL"></label>
                             <input type="text" name="photoURL" id="photoURL" th:value="${defaultActivityVTO.getActivity().getPhotoURL()}" class="createActivityPopUpInput">
                         </div>
@@ -164,3 +183,10 @@
     </div>
 </body>
 </html>
+
+
+
+
+
+
+

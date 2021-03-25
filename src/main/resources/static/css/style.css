@@ -481,7 +481,43 @@ button:focus {
 
 
 
+/*----------ToolTip/ErrorMessage----------*/
 
+.tooltipBox {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltipBox .tooltipText {
+    visibility: hidden;
+    width: 120px;
+    background-color: #fff;
+    color: #7fa7d4;
+    border: 1px solid #83acdb;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom:20px;
+    padding-right:10px;
+    padding-left:10px;
+    border-radius: 3px;
+    width: 300px;
+    font-family: 'Assistant', sans-serif;
+    font-size: 14px;
+    position: absolute;
+    z-index: 2;
+}
+
+.tooltipBox:hover  .tooltipText {
+    visibility: visible;
+}
+
+.tooltipBox:hover  .tooltipText .tooltipLeft {
+    visibility: visible;
+}
+.tooltipLeft{
+    top: -5px ! important;
+    right: 105% ! important;
+}
 
 
 

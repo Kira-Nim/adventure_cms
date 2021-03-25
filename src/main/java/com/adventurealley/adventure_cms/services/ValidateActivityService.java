@@ -131,8 +131,6 @@ public class ValidateActivityService{
             activityValidationVTO.getIsValidPhotoURL()
         ){
             activityValidationVTO.setStatusCode(true);
-
-
         }
 
         return activityValidationVTO;
