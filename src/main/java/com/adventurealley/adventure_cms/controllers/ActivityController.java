@@ -1,7 +1,9 @@
 package com.adventurealley.adventure_cms.controllers;
 
+import com.adventurealley.adventure_cms.VTOs.ActivityValidationVTO;
 import com.adventurealley.adventure_cms.model.Activity;
 import com.adventurealley.adventure_cms.model.ActivityRepository;
+import com.adventurealley.adventure_cms.services.ValidateActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,21 +20,14 @@ public class ActivityController {
     @PostMapping("/createActivity")
     public String getLandingPage(WebRequest dataFromformCreateActivity){
 
-        Activity activity = new Activity();
+        Activity newActivity = new Activity();
+        ValidateActivityService validateActivityService = new ValidateActivityService();
 
-        activity.setTitle(dataFromformCreateActivity.getParameter("title"));
-        activity.setPrice(Float.parseFloat(dataFromformCreateActivity.getParameter("price")));
-        activity.setPhotoURL(dataFromformCreateActivity.getParameter("photoURL"));
-        activity.setDescription(dataFromformCreateActivity.getParameter("description"));
+        ActivityValidationVTO activityValidationVTO = validateActivityService.validateNewActivity(dataFromformCreateActivity, newActivity);
 
-        activity.setMinAge(Integer.parseInt(dataFromformCreateActivity.getParameter("maxParticipants")));
-        activity.setDurationMinutes(Integer.parseInt(dataFromformCreateActivity.getParameter("duration")));
-        activity.setMaxParticipants(Integer.parseInt(dataFromformCreateActivity.getParameter("maxParticipants")));
-
-
-
-
-
+        if(activityValidationVTO.getStatusCode()){
+            activityRepository.save(newActivity);
+        }
 
         return "redirect:/";
 

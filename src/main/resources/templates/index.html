@@ -59,7 +59,7 @@
                         <div class ="row">
                             <span class="createActivityPopUpInputHeader">Titel</span>
                             <label for="title"></label>
-                            <input type="text" name="title" id="title" th:value="${defaultActivityVTO.getActivity().getTitle()}" class="createActivityPopUpInput" required minlength="8">
+                            <input type="text" name="title" id="title" th:value="${defaultActivityVTO.getActivity().getTitle()}" class="createActivityPopUpInput">
                             <span class="error"></span>
                         </div>
                         <br>
@@ -97,7 +97,7 @@
                     <div class=" offset-1 col-6">
                         <span class="createActivityPopUpInputHeader">Aktivitetsbeskrivelse</span>
                         <label for="description"></label>
-                        <textarea type="text" name="description" id="description" class="createActivityPopUpInputArea createActivityPopUpInput" th:placeholder="${defaultActivityVTO.getActivity().getDescription()}"></textarea>
+                        <textarea type="text" name="description" id="description" class="createActivityPopUpInputArea createActivityPopUpInput" th:text="${defaultActivityVTO.getActivity().getDescription()}"></textarea>
                     </div>
                 </div>
                 <div class ="row">
