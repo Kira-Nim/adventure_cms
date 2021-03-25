@@ -39,18 +39,76 @@
     <h1 class="landingPageHeader">Adventure Alley</h1>
 
 
+    <div th:if="${newActivity}" class="CreateActivitypopUpBox" id="activityPopUp">
+        <div class="container CreateActivityPopUpBoxContainer">
 
-    <div class="CreateActivitypopUpBox">
-    <div class="container CreateActivityPopUpBoxContainer">
-        <form name="newActivity" th:action="@{/createActivity}" method="post">
+            <div class="row">
+                <a href="/?newActivity=false" class="closePlus" id="ClosePlus">&times;</a>
+            </div>
+
             <div class="row">
                 <div class="CreateActivityPopUpHeader">
                     <h1 >Opret Aktivitet</h1>
                 </div>
             </div>
-        </form>
+
+            <form novalidate name="newActivity" th:action="@{/createActivity}" method="post">
+                <div class="row">
+
+                    <div class="col-5">
+                        <div class ="row">
+                            <span class="createActivityPopUpInputHeader">Titel</span>
+                            <label for="title"></label>
+                            <input type="text" name="title" id="title" placeholder = "Ny titel" class="createActivityPopUpInput" required minlength="8">
+                            <span class="error"></span>
+                        </div>
+                        <br>
+                        <div class ="row">
+                            <span class="createActivityPopUpInputHeader">Pris</span>
+                            <label for="price"></label>
+                            <input type="text" name="price" id="price" placeholder = "Pris - f.eks: 235,50" class="createActivityPopUpInput">
+                        </div>
+                        <br>
+                        <div class ="row">
+                            <span class="createActivityPopUpInputHeader">Maks antal deltagere</span>
+                            <label for="maxParticipants"></label>
+                            <input type="text" name="maxParticipants" id="maxParticipants" placeholder = "Maks antal deltagere pr. event" class="createActivityPopUpInput">
+                        </div>
+                        <br>
+                        <div class ="row">
+                            <span class="createActivityPopUpInputHeader">Minimums alder</span>
+                            <label for="minAge"></label>
+                            <input type="text" name="minAge" id="minAge" placeholder="Minimumsalder i antal år - f.eks. 15" class="createActivityPopUpInput">
+                        </div>
+                        <br>
+                        <div class ="row">
+                            <span class="createActivityPopUpInputHeader">Varighed</span>
+                            <label for="duration"></label>
+                            <input type="text" name="duration" id="duration" placeholder="Varighed i minutter - f.eks: 240" class="createActivityPopUpInput">
+                        </div>
+                        <br>
+                        <div class ="row">
+                            <span class="createActivityPopUpInputHeader">Billede</span>
+                            <label for="photoURL"></label>
+                            <input type="text" name="photoURL" id="photoURL" placeholder="Indsæt url til billede" class="createActivityPopUpInput">
+                        </div>
+                    </div>
+
+                    <div class=" offset-1 col-6">
+                        <span class="createActivityPopUpInputHeader">Aktivitetsbeskrivelse</span>
+                        <label for="description"></label>
+                        <textarea type="text" name="description" id="description" class="createActivityPopUpInputArea createActivityPopUpInput" placeholder="Skriv beskrivelse her.. maks 700 anslag."></textarea>
+                    </div>
+                </div>
+                <div class ="row">
+                    <div class="offset-4 col-4">
+                        <button id="createActivityBtn" class="createActivityBtn">Opret Aktivitet</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    </div>
+
 
     <div class="container">
         <div class="row">
@@ -82,85 +140,27 @@
                     </div>
                 </div>
 
-
-
-
-
-
-
-
-
-
                 <!--
                 https://stackoverflow.com/questions/32650536/using-thymeleaf-variable-in-onclick-attribute/52960571#52960571
                 th:attr="onclick=|myJSMethod('${myParameter}')|"
                 -->
-
-
-
-
-
-
-
-
             </div>
 
-            <div class=" col-4 CreateActivityBox" th:if="${loggedIn == true && newActivity == false}">
+
+            <div class=" col-4 CreateActivityBox" id="createActivityBox" th:if="${loggedIn == true && newActivity == false}">
                 <div class ="createActivityContent">
-                    <a href="/?newActivity=true" class="newActivityLinkStyle">
+                   <a href="/?newActivity=true" class="newActivityLinkStyle">
                         <img src="../images/+1.png" class="imagePlus"/>
                     </a>
                 </div>
             </div>
 
 
-           <div onclick="showCreateActivityForm()" class="col-4 CreateActivityBox" th:if="${loggedIn == true && newActivity == true}"></div>
+         <div class="col-4 CreateActivityBox" th:if="${loggedIn == true && newActivity == true}">
+              <div></div>
+          </div>
 
         </div>
     </div>
 </body>
 </html>
-
-
-
-<!--
-<div class ="createActivityContent">
-<form name="newActivity" th:action="@{/createActivity}" method="post">
-
-    <div class="activityFormInfo">
-        <div class="row tempBorderGreen">
-            <label for="title"></label>
-            <input type="text" name="title" id="title" value ="titel" >
-        </div>
-
-        <div class="row tempBorderGreen">
-            <label for="title1"></label>
-            <input type="text" name="title" id="title1" value ="titel1">
-        </div>
-
-        <div class="row tempBorderGreen">
-            <label for="title2"></label>
-            <input type="text" name="title" id="title2" value ="titel2">
-        </div>
-    </div>
-
-</form>
-</div>-->
-
-
-
-
-
-
-
-
-<!--
-<div class="activitydropdown">
-    <ul class="activitydropDownContent" th:each = "activityVTO: ${activityVTOList}">
-        <li class="activityDropdownLI">
-            <span th:text="${activityVTO.getDurationString()}"></span>
-            <br>
-            <span th:text="${activityVTO.getActivity().getTitle()}"></span>
-        </li>
-    </ul>
-</div>-->

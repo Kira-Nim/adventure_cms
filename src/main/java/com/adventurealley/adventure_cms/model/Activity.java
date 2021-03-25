@@ -37,7 +37,6 @@ public class Activity {
     public void setDescription(String description) { this.description = description; }
 
     public float getPrice() { return price; }
-
     public void setPrice(float price) { this.price = price; }
 
     public int getMinAge() { return minAge; }
@@ -47,7 +46,7 @@ public class Activity {
     public void setMaxParticipants(int maxParticipants) { this.maxParticipants = maxParticipants; }
 
     public int getDurationMinutes() { return durationMinutes; }
-    public void setDuration(int duration) { this.durationMinutes = duration; }
+    public void setDurationMinutes(int durationMinutes) { this.durationMinutes = durationMinutes; }
 
     public String getPhotoURL() { return photoURL; }
     public void setPhotoURL(String photoURL) { this.photoURL = photoURL; }
