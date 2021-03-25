@@ -119,12 +119,12 @@ public class AccountController {
 
 
     @PostMapping("/createActivity")
-    public String getLandingPage(WebRequest dataFromformCreateActivity){
+    public String getLandingPage(WebRequest dataFromFormCreateActivity){
 
         Activity newActivity = new Activity();
         ValidateActivityService validateActivityService = new ValidateActivityService();
 
-        ActivityValidationVTO activityValidationVTO = validateActivityService.validateNewActivity(dataFromformCreateActivity, newActivity);
+        ActivityValidationVTO activityValidationVTO = validateActivityService.validateNewActivity(dataFromFormCreateActivity, newActivity);
 
         if(activityValidationVTO.getStatusCode()){
             activityRepository.save(newActivity);
@@ -154,7 +154,7 @@ public class AccountController {
             errorCodes[6] = 7;
         }
 
-        return "redirect:/?activateErrorHandling=true";
+        return "redirect:/?createActivity=true&activateErrorHandling=true";
     }
 
 

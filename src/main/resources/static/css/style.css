@@ -2,6 +2,9 @@
 
 
 
+.invalidChoice{
+    color: #b73d20;
+}
 
 /*----------Nav bar----------*/
 /* Add a black background color to the top navigation */
@@ -304,7 +307,7 @@ button:focus {
 .CreateActivityPopUpBoxContainer{
     box-shadow: 0px 1px 21px -8px rgba(21,20,20,0.25);
     border: 1px solid #888;
-    height: 830px;
+    height: 880px;
     border-radius: 2px;
     background-color: #fefefe;
     margin: auto;
