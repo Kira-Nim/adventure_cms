@@ -10,13 +10,14 @@ public class ActivityVTO {
     private String durationString;
 
 
-    public ActivityVTO(Activity activity, String priceString, String durationString) {
-        this.activity = activity;
-        this.priceString = priceString;
-        this.durationString = durationString;
-    }
-
     public Activity getActivity() { return activity; }
+    public void setActivity(Activity activity) { this.activity = activity; }
+
     public String getPriceString() { return priceString; }
+    public void setPriceString(String priceString) { this.priceString = priceString; }
+
     public String getDurationString() { return durationString; }
+    public void setDurationString(String durationString) { this.durationString = durationString; }
+
+
 }

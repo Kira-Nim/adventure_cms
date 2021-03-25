@@ -1,6 +1,7 @@
 package com.adventurealley.adventure_cms.controllers;
 
 import com.adventurealley.adventure_cms.VTOs.ActivityVTO;
+import com.adventurealley.adventure_cms.model.Activity;
 import com.adventurealley.adventure_cms.model.ActivityRepository;
 import com.adventurealley.adventure_cms.model.Event;
 import com.adventurealley.adventure_cms.model.UserRepository;
@@ -29,13 +30,17 @@ public class AccountController {
     LandingPagePresenter landingPagePresenter;
 
     @GetMapping("/")
-    public String getLandingPage(Principal principal, Model indexModel, boolean newActivity){
+    public String getLandingPage(Principal principal, Model indexModel, boolean createActivity){
 
-        Event event = new Event();
-        event.getDateTimeString();
+/*        Event event = new Event();
+        event.getDateTimeString();*/
 
         //Add variable "newActivity" to Model.
-        indexModel.addAttribute("newActivity", newActivity);
+        indexModel.addAttribute("createActivity", createActivity);
+
+        //Add singleActivity to model (for edit or default)
+        ActivityVTO defaultActivityVTO = landingPagePresenter.getDefaultActivityVTO(new Activity());
+        indexModel.addAttribute("defaultActivityVTO", defaultActivityVTO);
 
         // Get list of ActivityVTO's for model
         ArrayList<ActivityVTO> activityVTOList = landingPagePresenter.getActivityVTOList();
@@ -60,6 +65,8 @@ public class AccountController {
             indexModel.addAttribute("loggedIn", loggedIn);
 
             return "index";}
+
+
     }
 
 

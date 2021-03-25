@@ -39,7 +39,7 @@
     <h1 class="landingPageHeader">Adventure Alley</h1>
 
 
-    <div th:if="${newActivity}" class="CreateActivitypopUpBox" id="activityPopUp">
+    <div th:if="${createActivity}" class="CreateActivitypopUpBox" id="activityPopUp">
         <div class="container CreateActivityPopUpBoxContainer">
 
             <div class="row">
@@ -52,52 +52,52 @@
                 </div>
             </div>
 
-            <form novalidate name="newActivity" th:action="@{/createActivity}" method="post">
+            <form name="newActivity" th:action="@{/createActivity}" method="post">
                 <div class="row">
 
                     <div class="col-5">
                         <div class ="row">
                             <span class="createActivityPopUpInputHeader">Titel</span>
                             <label for="title"></label>
-                            <input type="text" name="title" id="title" placeholder = "Ny titel" class="createActivityPopUpInput" required minlength="8">
+                            <input type="text" name="title" id="title" th:value="${defaultActivityVTO.getActivity().getTitle()}" class="createActivityPopUpInput" required minlength="8">
                             <span class="error"></span>
                         </div>
                         <br>
                         <div class ="row">
                             <span class="createActivityPopUpInputHeader">Pris</span>
                             <label for="price"></label>
-                            <input type="text" name="price" id="price" placeholder = "Pris - f.eks: 235,50" class="createActivityPopUpInput">
+                            <input type="text" name="price" id="price" th:value="${defaultActivityVTO.getPriceString()}" class="createActivityPopUpInput">
                         </div>
                         <br>
                         <div class ="row">
                             <span class="createActivityPopUpInputHeader">Maks antal deltagere</span>
                             <label for="maxParticipants"></label>
-                            <input type="text" name="maxParticipants" id="maxParticipants" placeholder = "Maks antal deltagere pr. event" class="createActivityPopUpInput">
+                            <input type="text" name="maxParticipants" id="maxParticipants" th:value="${defaultActivityVTO.getActivity().maxParticipants}" class="createActivityPopUpInput">
                         </div>
                         <br>
                         <div class ="row">
                             <span class="createActivityPopUpInputHeader">Minimums alder</span>
                             <label for="minAge"></label>
-                            <input type="text" name="minAge" id="minAge" placeholder="Minimumsalder i antal år - f.eks. 15" class="createActivityPopUpInput">
+                            <input type="text" name="minAge" id="minAge" th:value="${defaultActivityVTO.getActivity().getMinAge()}" class="createActivityPopUpInput">
                         </div>
                         <br>
                         <div class ="row">
                             <span class="createActivityPopUpInputHeader">Varighed</span>
                             <label for="duration"></label>
-                            <input type="text" name="duration" id="duration" placeholder="Varighed i minutter - f.eks: 240" class="createActivityPopUpInput">
+                            <input type="text" name="duration" id="duration" th:value="${defaultActivityVTO.getDurationString()}" class="createActivityPopUpInput">
                         </div>
                         <br>
                         <div class ="row">
                             <span class="createActivityPopUpInputHeader">Billede</span>
                             <label for="photoURL"></label>
-                            <input type="text" name="photoURL" id="photoURL" placeholder="Indsæt url til billede" class="createActivityPopUpInput">
+                            <input type="text" name="photoURL" id="photoURL" th:value="${defaultActivityVTO.getActivity().getPhotoURL()}" class="createActivityPopUpInput">
                         </div>
                     </div>
 
                     <div class=" offset-1 col-6">
                         <span class="createActivityPopUpInputHeader">Aktivitetsbeskrivelse</span>
                         <label for="description"></label>
-                        <textarea type="text" name="description" id="description" class="createActivityPopUpInputArea createActivityPopUpInput" placeholder="Skriv beskrivelse her.. maks 700 anslag."></textarea>
+                        <textarea type="text" name="description" id="description" class="createActivityPopUpInputArea createActivityPopUpInput" th:placeholder="${defaultActivityVTO.getActivity().getDescription()}"></textarea>
                     </div>
                 </div>
                 <div class ="row">
@@ -147,9 +147,9 @@
             </div>
 
 
-            <div class=" col-4 CreateActivityBox" id="createActivityBox" th:if="${loggedIn == true && newActivity == false}">
+            <div class=" col-4 CreateActivityBox" id="createActivityBox" th:if="${loggedIn == true && createActivity == false}">
                 <div class ="createActivityContent">
-                   <a href="/?newActivity=true" class="newActivityLinkStyle">
+                   <a href="/?createActivity=true" class="newActivityLinkStyle">
                         <img src="../images/+1.png" class="imagePlus"/>
                     </a>
                 </div>
