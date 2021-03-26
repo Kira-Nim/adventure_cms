@@ -1,0 +1,30 @@
+Kørselsvejledning
+Det forventes i nedenstående at JDK, IntelliJ og MySQL allerede er installeret.
+
+1) 
+Check source-koden ud fra git: Afleveret i andet afleverings link
+
+2) 
+Åbn projektet ved at åbne mappen ”adventure_cms” i IntelliJ
+
+3) 
+Kør Maven og hent dependencies.
+
+4) 
+Start MySQL hvis den ikke allerede kører.
+
+5) 
+Importér db_creation.sql i MySQL (f.eks. via MySQL workbench)
+
+6) 
+Indstil application.properties ved at rette de data der skal til for at forbinde til databasen (default er en bruger med navn ”extra”, password ”1234” - ret dette til en bruger med adgang til den importerede database ”adventure_alley”)
+
+7) 
+Kør ”AdventureCmsApplication” fra IntelliJ
+
+8) 
+Gå i en browser ind på localhost:8080
+
+9) 
+Log ind med test-brugeren ”admin” med password ”1234”
+
